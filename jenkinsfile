@@ -1,0 +1,12 @@
+pipeline {
+	agent any
+	stages {
+		stage('build') {
+			mvn --version
+			mvn -f webdemo/pom.xml clean install
+		}
+		stage('deploy') {
+			ls webdemo/target
+		}
+	}
+}
