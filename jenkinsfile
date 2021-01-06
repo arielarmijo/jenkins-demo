@@ -3,13 +3,14 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
-				mvn --version
-				mvn -f webdemo/pom.xml clean install
+				sh 'ls -l'
+				sh 'mvn --version'
+				sh 'mvn -f webdemo/pom.xml clean install'
 			}
 		}
 		stage('deploy') {
 			steps {
-				ls webdemo/target
+				sh 'ls webdemo/target'
 			}
 		}
 	}
