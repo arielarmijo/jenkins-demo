@@ -2,11 +2,15 @@ pipeline {
 	agent any
 	stages {
 		stage('build') {
-			mvn --version
-			mvn -f webdemo/pom.xml clean install
+			steps {
+				mvn --version
+				mvn -f webdemo/pom.xml clean install
+			}
 		}
 		stage('deploy') {
-			ls webdemo/target
+			steps {
+				ls webdemo/target
+			}
 		}
 	}
 }
