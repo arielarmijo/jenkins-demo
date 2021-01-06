@@ -8,10 +8,6 @@
         <param-name>imageDir</param-name>
         <param-value>/img/avatar/</param-value>
     </context-param>
-    <context-param>
-        <param-name>avatar</param-name>
-        <param-value>foca.jpg</param-value>
-    </context-param>
   	<servlet-mapping>
     	<servlet-name>default</servlet-name>
 	    <url-pattern>/img/*</url-pattern>

@@ -21,7 +21,7 @@ import com.talento.webdemo.service.ImageServiceLocal;
 @WebServlet("/upload")
 // 1024 bytes = 1 KB
 @MultipartConfig(fileSizeThreshold = 1024*500,	// 500 KB
-				 maxFileSize = 1024*1024*1,		// 1 MB
+				 maxFileSize = 1024*1024*5,		// 5 MB
 				 maxRequestSize = 1024*1024*5)	// 5 MB
 public class UploadImageServlet extends HttpServlet {
 	
@@ -33,14 +33,14 @@ public class UploadImageServlet extends HttpServlet {
 		// Construye la ruta del directorio donde se guardarán las imágenes
 		ServletContext context = request.getServletContext();
 		String imageDir = context.getInitParameter("imageDir");
-		String imageDirPath = context.getRealPath(imageDir);
+		String path = context.getRealPath(imageDir);
 		
 		try {
 			// Guarda archivo en directorio /img
 			for (Part part : request.getParts()) {
 				String fileName = part.getSubmittedFileName();
-				part.write(imageDirPath + fileName);
-				File file = new File(imageDirPath + fileName);
+				part.write(path + fileName);
+				File file = new File(path + fileName);
 				logger.info("Imagen guardada en: " + file.getAbsolutePath());
 			}
 			// Actualiza lista de imágenes

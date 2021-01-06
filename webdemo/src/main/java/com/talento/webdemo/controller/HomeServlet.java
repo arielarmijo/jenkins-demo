@@ -30,9 +30,8 @@ public class HomeServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		context = config.getServletContext();
 		service = new ImageServiceLocal(context);
-		avatar = context.getInitParameter("avatar");
 		List<String> imagenes = service.getImagesNames();
-		context.setAttribute("avatar", avatar);
+		context.setAttribute("avatar", imagenes.get(0));
 		context.setAttribute("imagenes", imagenes);
 	    logger.info(String.format("Configuración establecida: avatar=%s, imágenes=%d", avatar, imagenes.size()));
 	    super.init();

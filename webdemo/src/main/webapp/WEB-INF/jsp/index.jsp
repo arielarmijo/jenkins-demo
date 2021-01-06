@@ -92,10 +92,12 @@
         <div class="container text-center">
             <p>
             	<span>WebDemo</span>
-            	<a href="http://creativecommons.org/licenses/by/4.0/">
-            		<i class="fab fa-creative-commons"></i>
-            		<i class="fab fa-creative-commons-by"></i>
-            	</a>
+            	<sup>
+	            	<a href="http://creativecommons.org/licenses/by/4.0/">
+	            		<i class="fab fa-creative-commons"></i>
+	            		<i class="fab fa-creative-commons-by"></i>
+	            	</a>
+            	</sup>
             </p>
             <small>
             	<span>Creado por Ariel Armijo</span>

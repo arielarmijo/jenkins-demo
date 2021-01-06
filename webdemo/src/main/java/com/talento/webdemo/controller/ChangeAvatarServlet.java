@@ -21,29 +21,11 @@ public class ChangeAvatarServlet extends HttpServlet {
 	static Log logger = LogFactory.getLog(ChangeAvatarServlet.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String avatarPrevio;
 		String avatar = request.getParameter("avatar");
 		HttpSession session = request.getSession();
-		
-		@SuppressWarnings("unchecked")
-		Stack<String> historial = (Stack<String>) session.getAttribute("historial");
-		// Si el historial está vacío, el primer elemento es foca.jpg
-		if (historial == null) {
-			historial = new Stack<>();
-			ServletContext context = request.getServletContext();
-			avatarPrevio = (String) context.getAttribute("avatar");
-		} else {
-			avatarPrevio = (String) session.getAttribute("avatar");
-		}
-		
-		historial.push(avatarPrevio);
-	
 		session.setAttribute("avatar", avatar);
-		session.setAttribute("historial", historial);
-		logger.info(String.format("Avatar cambiado de %s a %s", historial.peek(), avatar));
+		logger.info(String.format("Avatar cambiado a %s", avatar));
 		request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
-		
 	}
 
 }
