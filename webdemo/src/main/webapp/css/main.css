@@ -40,10 +40,18 @@ footer p {
 	margin-bottom: 0;
 }
 
-footer small, footer a {
+footer p, footer p a {
+	color: #E9C46A;
+}
+
+footer a:hover {
 	color: #2A9D8F;
 }
 
-footer p, footer a:hover {
+footer small, footer small a {
+	color: #2A9D8F;
+}
+
+footer small a:hover {
 	color: #E9C46A;
 }

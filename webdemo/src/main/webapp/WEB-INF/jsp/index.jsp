@@ -78,7 +78,6 @@
 							</div>
 						</c:if>
 					</div>
-					<div class="row">
 					<!-- /FEEDBACK MESSAGE -->
                     <!-- PREVIEW-->
                     <div class="row my-3">
@@ -91,11 +90,21 @@
     </main>
     <footer class="mb-5">
         <div class="container text-center">
-            <p>WebDemo</p>
-            <small>Creado por <a href="#">Ariel Armijo</a></small>
+            <p>
+            	<span>WebDemo</span>
+            	<a href="http://creativecommons.org/licenses/by/4.0/">
+            		<i class="fab fa-creative-commons"></i>
+            		<i class="fab fa-creative-commons-by"></i>
+            	</a>
+            </p>
+            <small>
+            	<span>Creado por Ariel Armijo</span>
+            	<a href="mailto:arielarmijo@yahoo.es"><i class="fas fa-envelope-open"></i></a>
+            	<a href="https://github.com/arielarmijo"><i class="fab fa-github"></i></a>
+            	<a href="www.linkedin.com/in/arielarmijo"><i class="fab fa-linkedin"></i></a>
+            </small>
         </div>
     </footer>
-    
     <script type="text/javascript" src="<c:url value="/js/main.js"/>"></script>
 </body>
 </html>
