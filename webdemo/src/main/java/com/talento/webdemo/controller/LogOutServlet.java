@@ -1,7 +1,6 @@
 package com.talento.webdemo.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,18 +11,19 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-@WebServlet("/change")
-public class ChangeAvatarServlet extends HttpServlet {
+@WebServlet("/logout")
+public class LogOutServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	static Log logger = LogFactory.getLog(ChangeAvatarServlet.class);
-
+	private static Log logger = LogFactory.getLog(LogOutServlet.class);
+       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String avatar = request.getParameter("avatar");
 		HttpSession session = request.getSession();
-		session.setAttribute("avatar", avatar);
-		logger.info(String.format("Avatar cambiado a %s", avatar));
-		request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+		session.invalidate();
+		logger.info("Sesión cerrada.");
+		request.setAttribute("mensaje", "Se ha cerrado la sesión.");
+		request.setAttribute("bsClass", "alert-success");
+		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 	}
 
 }

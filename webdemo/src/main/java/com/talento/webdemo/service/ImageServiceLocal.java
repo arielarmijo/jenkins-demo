@@ -28,7 +28,7 @@ public class ImageServiceLocal implements ImageService {
 		List<String> imagenes = new ArrayList<>();
 		Set<String> recursos = context.getResourcePaths(imageDir);
 		if (recursos != null) {
-			//recursos.stream().forEach(r -> logger.info("Imagen encontrada: " + r));
+			recursos.stream().forEach(r -> logger.info("Imagen encontrada: " + r));
 			imagenes = recursos.stream().map(s -> s.replaceFirst(imageDir, "")).sorted().collect(Collectors.toList());
 		}
 		return imagenes;

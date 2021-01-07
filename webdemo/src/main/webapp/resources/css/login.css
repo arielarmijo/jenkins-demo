@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.card-body > i {
+	font-size: 4em;
+	color:#2A9D8F;
+}
+
+span.input-group-text i {
+	color: #264653;
+}
+
+.feedback {
+	margin: 1em 0;
+}
+
+.error {
+	color: #842029;
+}
+
+.success {
+	color: #358f30;
+}
+
+input[type="submit"] {
+	background-color: #2A9D8F;
+	color: #E9C46A;
+	margin-top: .5em;
+}
+
+input[type="submit"]:hover {
+	color: #264653;
+}

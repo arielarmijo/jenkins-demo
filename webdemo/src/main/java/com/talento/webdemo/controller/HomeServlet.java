@@ -21,17 +21,17 @@ import com.talento.webdemo.service.ImageServiceLocal;
 public class HomeServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	static Log logger = LogFactory.getLog(HomeServlet.class);
+	private static Log logger = LogFactory.getLog(HomeServlet.class);
 	private ServletContext context;
 	private ImageService service;
-	private String avatar;
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		context = config.getServletContext();
 		service = new ImageServiceLocal(context);
 		List<String> imagenes = service.getImagesNames();
-		context.setAttribute("avatar", imagenes.get(0));
+		String avatar = imagenes.get(0);
+		context.setAttribute("avatar", avatar);
 		context.setAttribute("imagenes", imagenes);
 	    logger.info(String.format("Configuración establecida: avatar=%s, imágenes=%d", avatar, imagenes.size()));
 	    super.init();

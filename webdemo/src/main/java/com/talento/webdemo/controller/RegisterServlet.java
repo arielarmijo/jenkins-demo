@@ -12,18 +12,22 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-@WebServlet("/change")
-public class ChangeAvatarServlet extends HttpServlet {
+import com.talento.webdemo.domain.Usuario;
+import com.talento.webdemo.service.MockUserService;
+import com.talento.webdemo.service.UserService;
+
+@WebServlet("/register")
+public class RegisterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	static Log logger = LogFactory.getLog(ChangeAvatarServlet.class);
+	private static Log logger = LogFactory.getLog(RegisterServlet.class);
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String avatar = request.getParameter("avatar");
-		HttpSession session = request.getSession();
-		session.setAttribute("avatar", avatar);
-		logger.info(String.format("Avatar cambiado a %s", avatar));
-		request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+		
 	}
 
 }

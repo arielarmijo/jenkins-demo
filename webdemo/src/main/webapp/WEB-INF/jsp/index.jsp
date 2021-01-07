@@ -4,26 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<%@ include file="/WEB-INF/jsp/fragments/head.jspf" %>
     <title>Web Demo</title>
-    <meta charset='utf-8'>
-    <meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/ico" href="<c:url value="/img/favicon.ico"/>" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/aaf6652f81.js"></script>
 </head>
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/fragments/navbar.jsp"/>	
+	</header>
 	<main>
         <div class="container py-5">
             <div class="card col-md-10 col-lg-7">
                 <div class="card-body text-center">
-                    <h1 class="card-title">
-                    	<a href="<c:url value="/"/>">Web Demo</a>
-                    </h1>
-                    <c:url value="/img/avatar/${avatar}" var="img"/>
-                    <img class="rounded-circle mt-2" src="${img}" width="150" height="150" alt="${avatar}"/>
+                    <h1 class="card-title">Web Demo</h1>
+                    <img class="rounded-circle mt-2" src="resources/img/avatar/${avatar}" width="150" height="150" alt="${avatar}"/>
                     <!-- AVATAR FORM -->
                     <div class="row">
                         <div class="col-10">
@@ -70,14 +63,11 @@
                     </div>
                     <!-- /UPLOAD FORM -->
                     <!-- FEEDBACK MESSAGE -->
-                    <div id="feedback" class="row m-0 p-0">
-						<c:if test="${not empty mensaje}">
-							<div class="alert ${bsClass} alert-dismissible fade show my-2" role="alert">
-								${mensaje}
-							  	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-							</div>
-						</c:if>
-					</div>
+					<c:if test="${not empty mensaje}">
+						<div class="alert ${bsClass} alert-dismissible fade show mt-4" role="alert">${mensaje}
+						  	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					</c:if>
 					<!-- /FEEDBACK MESSAGE -->
                     <!-- PREVIEW-->
                     <div class="row my-3">
@@ -89,24 +79,8 @@
         </div>
     </main>
     <footer class="mb-5">
-        <div class="container text-center">
-            <p>
-            	<span>WebDemo</span>
-            	<sup>
-	            	<a href="http://creativecommons.org/licenses/by/4.0/">
-	            		<i class="fab fa-creative-commons"></i>
-	            		<i class="fab fa-creative-commons-by"></i>
-	            	</a>
-            	</sup>
-            </p>
-            <small>
-            	<span>Creado por Ariel Armijo</span>
-            	<a href="mailto:arielarmijo@yahoo.es"><i class="fas fa-envelope-open"></i></a>
-            	<a href="https://github.com/arielarmijo"><i class="fab fa-github"></i></a>
-            	<a href="www.linkedin.com/in/arielarmijo"><i class="fab fa-linkedin"></i></a>
-            </small>
-        </div>
+        <jsp:include page="/WEB-INF/jsp/fragments/footer.jsp"/>
     </footer>
-    <script type="text/javascript" src="<c:url value="/js/main.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="resources/js/main.js"/>"></script>
 </body>
 </html>
