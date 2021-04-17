@@ -1,16 +1,28 @@
 pipeline {
 	agent any
+	environment {
+		WEBAPPS_FOLDER = '/opt/tomcat/latest/webapps'
+		WEBAPP_NAME = 'webdemo'
+		WEBAPP = "${WEBAPP_FOLDER}/${WEBAPP_NAME}"
+	}
 	stages {
 		stage('build') {
 			steps {
 				sh 'ls -l'
 				sh 'mvn --version'
-				sh 'mvn -f webdemo/pom.xml clean install'
+				sh 'mvn -f $WEBAPP_NAME/pom.xml clean install'
+			}
+		}
+		stage('clean') {
+			when { expression {  fileExists (WEBAPP) } }
+			steps {
+				sh 'echo "Limpiando directorio $WEBAPP"'
+				sh 'rm $WEBAPP'
 			}
 		}
 		stage('deploy') {
 			steps {
-				sh 'cp webdemo/target/*.war /opt/tomcat/latest/webapps/'
+				sh 'cp $WEBAPP_NAME/target/*.war $WEBAPP_FOLDER'
 			}
 		}
 	}
