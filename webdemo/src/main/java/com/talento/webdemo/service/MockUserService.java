@@ -12,8 +12,6 @@ public class MockUserService implements UserService {
 	static {
 		usuarios = new HashSet<>();
 		usuarios.add(new Usuario("ariel", "1234"));
-		usuarios.add(new Usuario("admin", "admin"));
-		usuarios.add(new Usuario("aarmijo", "cg331x"));
 	}
 
 	@Override
