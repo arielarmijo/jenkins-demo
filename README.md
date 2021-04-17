@@ -1,3 +1,4 @@
-# webdemo
-[Projecto de prueba](http://152.67.32.99/webdemo/) para probar las funcionalidades del servidor Jenkins y su integración con Github.
+# Jenkins Demo
+[Projecto de prueba](http://http://152.67.40.135:8080/webdemo/) para probar las funcionalidades del [servidor Jenkins](http://152.67.40.135:8080/jenkins) y su [integración con Github](https://plugins.jenkins.io/github/).
+
 
