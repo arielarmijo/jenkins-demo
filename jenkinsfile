@@ -3,7 +3,7 @@ pipeline {
 	environment {
 		WEBAPPS_FOLDER = '/opt/tomcat/latest/webapps'
 		WEBAPP_NAME = 'webdemo'
-		WEBAPP = "${WEBAPP_FOLDER}/${WEBAPP_NAME}"
+		WEBAPP = "${WEBAPPS_FOLDER}/${WEBAPP_NAME}"
 	}
 	stages {
 		stage('build') {
@@ -22,7 +22,7 @@ pipeline {
 		}
 		stage('deploy') {
 			steps {
-				sh 'cp $WEBAPP_NAME/target/*.war $WEBAPP_FOLDER'
+				sh 'cp $WEBAPP_NAME/target/*.war $WEBAPPS_FOLDER'
 			}
 		}
 	}
