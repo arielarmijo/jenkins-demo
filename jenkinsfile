@@ -10,7 +10,7 @@ pipeline {
 		}
 		stage('deploy') {
 			steps {
-				sh 'cp webdemo/target/*.war /var/lib/tomcat9/webapps/'
+				sh 'cp webdemo/target/*.war /opt/tomcat/latest/webapps/'
 			}
 		}
 	}
