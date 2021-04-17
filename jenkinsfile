@@ -17,7 +17,7 @@ pipeline {
 			when { expression {  fileExists (WEBAPP) } }
 			steps {
 				sh 'echo "Limpiando directorio $WEBAPP"'
-				sh 'rm $WEBAPP'
+				sh 'rm -fr $WEBAPP'
 			}
 		}
 		stage('deploy') {
