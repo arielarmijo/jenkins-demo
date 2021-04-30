@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav class="navbar navbar-dark">
-	<div class="container-fluid mx-2">
+	<div class="container">
 		<a class="navbar-brand" href="<c:url value="/"/>">
 			<img src="resources/img/logo.png" alt="logo.png" width="50" height="50">
 		</a>
